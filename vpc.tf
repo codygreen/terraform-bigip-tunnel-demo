@@ -76,4 +76,10 @@ module "mgmt-network-security-group" {
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
 
+  tags = {
+    name        = format("%s-sg-mgmt-%s", var.prefix, random_id.id.hex)
+    Terraform   = "true"
+    Environment = "Demo"
+  }
+
 }

@@ -16,6 +16,12 @@ variable "azs" {
   default     = ["us-east-1a", "us-east-1b"]
 }
 
+variable "bigip_instances" {
+  description = "Number of BIG-IPs to deploy"
+  type        = map(any)
+  default     = {}
+}
+
 variable "prefix" {
   description = "Prefix for resources created in AWS"
   type        = string
