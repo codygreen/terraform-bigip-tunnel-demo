@@ -69,7 +69,7 @@ module "mgmt-network-security-group" {
   description = "Security group for BIG-IP Management"
   vpc_id      = module.vpc.vpc_id
 
-  ingress_cidr_blocks = var.AllowedIPs
+  ingress_cidr_blocks = concat([var.vpc_cidr], var.AllowedIPs)
   ingress_rules       = ["https-443-tcp", "https-8443-tcp", "ssh-tcp"]
 
   # Allow ec2 instances outbound Internet connectivity

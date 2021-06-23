@@ -31,3 +31,13 @@ output "bigip_password" {
     for device in module.bigip : device.bigip_password
   ])
 }
+
+# Ubuntu IP
+output "ubuntu_private_ip" {
+  value = aws_instance.ubuntu.private_ip
+}
+
+# Private Key
+output "tls_privatekey" {
+  value = tls_private_key.example.private_key_pem
+}
